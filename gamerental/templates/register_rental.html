@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Alquiler{% endblock %}
+
+{% block content %}
+    <h1>Registrar Nuevo Alquiler</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="renter_name">Nombre del Cliente:</label>
+            <input type="text" class="form-control" id="renter_name" name="renter_name" required>
+        </div>
+        <div class="form-group">
+            <label for="video_game">Juego:</label>
+            <select class="form-control" id="video_game" name="video_game" required>
+                {% for game in video_games %}
+                    <option value="{{ game.id }}">{{ game.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="rental_date">Fecha de Alquiler:</label>
+            <input type="datetime-local" class="form-control" id="rental_date" name="rental_date" required>
+        </div>
+        <div class="form-group">
+            <label for="return_date">Fecha de Devolución:</label>
+            <input type="datetime-local" class="form-control" id="return_date" name="return_date">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar Alquiler</button>
+    </form>
+
+
+    <br>
+</br>
+{% endblock %}

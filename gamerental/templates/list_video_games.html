@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}List of Video Games{% endblock %}
+
+{% block content %}
+    <h1>Juegos Disponibles</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Platforma</th>
+                <th>Genero</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game in video_games %}
+                <tr>
+                    <td>{{ game.title }}</td>
+                    <td>{{ game.platform.name }}</td>
+                    <td>{{ game.genre.name }}</td>
+                    <td>{{ game.stock }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center">No hay juegos Disponibles.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+    <div class="mb-3">
+        <h5>Filtrar Juegos</h5>
+        <h6>Por Genero:</h6>
+        {% for genre in genres %}
+            <a href="{% url 'video_games_by_genre' genre.id %}" class="btn btn-primary">{{ genre.name }}</a>
+        {% endfor %}
+    
+        <h6>Por Plataforma:</h6>
+        {% for platform in platforms %}
+            <a href="{% url 'video_games_by_platform' platform.id %}" class="btn btn-primary">{{ platform.name }}</a>
+        {% endfor %}
+    </div>
+    
+    <br>
+
+</br>
+{% endblock %}

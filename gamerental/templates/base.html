@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MÍA GAMES{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <a class="navbar-brand" href="{% url 'home' %}">MÍA GAMES</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_video_games' %}">Juegos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_rentals' %}">Alquileres</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register_video_game' %}">Registrar juego nuevo</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register_rental' %}">Registrar alquiler</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_platforms' %}">Plataformas</a></li> <!-- Enlace a la lista de plataformas -->
+            </ul>
+            <div class="ml-auto">
+                <a href="{% url 'add_platform' %}" class="btn btn-light">Agregar Plataforma</a> <!-- Botón para agregar plataforma -->
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <br> 
+</br>
+
+
+<div class="slider-wrapper">
+    <div class="swiffy-slider">
+        <ul class="slider-container">
+            <li><img src="{% static 'img/1.jpg' %}"></li>
+            <li><img src="{% static 'img/2.jpg' %}" ></li>
+            <li><img src="{% static 'img/3.jpg' %}" ></li>
+            <li><img src="{% static 'img/4.jpg' %}"></li>
+            <li><img src="{% static 'img/5.jpg' %}"></li>
+        </ul>
+        
+        <button type="button" class="slider-nav"></button>
+        <button type="button" class="slider-nav slider-nav-next"></button>
+        
+        <div class="slider-indicators">
+            <button class="active"></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+    </div>
+</div>
+
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 MÍA GAMES</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SwiffySlider/1.0.0/js/swiffy-slider.min.js"></script>
+    <script>
+        const slider = new SwiffySlider('.swiffy-slider');
+    </script>
+</body>
+</html>

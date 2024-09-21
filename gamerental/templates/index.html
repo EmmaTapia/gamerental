@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido al Sistema</h1>
+    <p>Explore nuestros videojuegos disponibles y las opciones de alquiler!</p>
+    <ul>
+        <li><a href="{% url 'list_video_games' %}">Ver todos los Juegos</a></li>
+        <li><a href="{% url 'list_rentals' %}">Ver lista de alquileres</a></li>
+        <li><a href="{% url 'register_video_game' %}">Registrar juego nuevo</a></li>
+        <li><a href="{% url 'register_rental' %}">Registrar alquiler</a></li>
+    </ul>
+
+    
+
+{% endblock %}
+
+
+{% endblock %}

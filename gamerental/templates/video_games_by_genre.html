@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Juegos por Genero: {{ selected_genre.name }}</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Platforma</th>
+            <th>Genero</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for video_game in video_games %}
+        <tr>
+            <td>{{ video_game.id }}</td>
+            <td>{{ video_game.title }}</td>
+            <td>{{ video_game.platform.name }}</td>
+            <td>{{ video_game.genre.name }}</td>
+            <td>{{ video_game.stock }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'list_video_games' %}" class="btn btn-secondary">VOLVER</a>
+{% endblock %}

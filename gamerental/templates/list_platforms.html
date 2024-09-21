@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Plataformas{% endblock %}
+
+{% block content %}
+<h1>Lista de Plataformas</h1>
+<ul>
+    {% for platform in platforms %}
+        <li>{{ platform.name }}</li>
+    {% empty %}
+        <li>No hay plataformas disponibles.</li>
+    {% endfor %}
+</ul>
+
+<div class="mt-4">
+    <a href="{% url 'list_platforms' %}" class="btn btn-info">Ver Plataformas</a>
+    <a href="{% url 'list_rentals' %}" class="btn btn-secondary">Ver Alquileres</a>
+    <a href="{% url 'register_rental' %}" class="btn btn-primary">Registrar Alquiler</a>
+</div>
+<br>
+</br>
+{% endblock %}
