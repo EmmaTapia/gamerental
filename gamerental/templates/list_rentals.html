@@ -16,7 +16,7 @@
         <tbody>
             {% for rental in rentals %}
                 <tr>
-                    <td>{{ rental.renter_name }}</td>  <!-- Cambia 'client' por 'renter_name' -->
+                    <td>{{ rental.renter_name }}</td>  
                     <td>{{ rental.video_game.title }}</td>
                     <td>{{ rental.rental_date }}</td>
                     <td>{{ rental.return_date|default:"Not returned" }}</td>
